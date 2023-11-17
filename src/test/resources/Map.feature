@@ -1,5 +1,5 @@
 @map @test
-Feature: Product scenarios
+Feature: Map scenarios
 
   Scenario: Verify six vehicales, maplocator and near By vehicales button displayed on Map
     Given I'm logged in to App

@@ -3,6 +3,7 @@ package com.qa.stepdef;
 import com.qa.pages.NearByVehicleListPage;
 import com.qa.utils.TestUtils;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class NearByVehicleListStepDef {
     TestUtils utils = new TestUtils();
@@ -10,6 +11,11 @@ public class NearByVehicleListStepDef {
     @Given("I see all six vehicale display in list")
     public void iSeeAllSixVehicleInList() {
         new NearByVehicleListPage().verifyAllVehicleDisplayInList();
+    }
+
+    @Then("I see price unit for vehicle")
+    public void iSeePriceUitForVehicle() throws Exception {
+        new NearByVehicleListPage().verifydPriceUnitOfVehicle();
     }
 
     @Given("I get KickScooter D1 details")

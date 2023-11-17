@@ -44,6 +44,29 @@ public class NearByVehicleListPage extends BasePage {
         Assert.assertTrue(KickScooterD6.isDisplayed());
     }
 
+    public void verifydPriceUnitOfVehicle() throws Exception {
+        String vehicle;
+        String price;
+        for (int i = 0; i < vehicleType.size(); i++) {
+             vehicle = getText(vehicleType.get(i), "vehicle type found" + vehicleType.get(i));
+             price = getText(vehiclePrice.get(i), "vehicle price rate is: " + vehiclePrice.get(i));
+            switch (vehicle) {
+                case "Kick Scooter":
+                    Assert.assertTrue(vehicle+"rate is:"+price+", missing :$ / min", price.contains("$ / min"));
+                    break;
+                case "Electric Bike":
+                    Assert.assertTrue(vehicle+"rate is:"+price+", missing :$ / hour", price.contains("$ / hour"));
+                    break;
+                case "Electric Car":
+                    Assert.assertTrue(vehicle+"rate is:"+price+", missing :$ / day", price.contains("$ / day"));
+                    break;
+                default:
+                    throw new Exception("vehicle not found");
+            }
+        }
+
+    }
+
     public void getKikScooterD1Details() {
         kikScooterD1 = new ArrayList<>();
         kikScooterD1.add(vehicleType.get(0).getText());
